@@ -35,10 +35,10 @@ provider "azurerm" {
     #      recover_soft_deleted_key_vaults = true
     #    }
   }
-  subscription_id = "b42d41fc-457e-4d69-bf5f-d6ca999ef2a0"
-  client_id       = "79baa2b9-8087-4140-8329-76e89d92b8dc"
-  client_secret   = var.client_secret
-  tenant_id       = "aa141e2a-a555-4d1b-a870-173addaf2cb3"
+  # subscription_id = "b42d41fc-457e-4d69-bf5f-d6ca999ef2a0"
+  # client_id       = "79baa2b9-8087-4140-8329-76e89d92b8dc"
+  # client_secret   = var.client_secret
+  # tenant_id       = "aa141e2a-a555-4d1b-a870-173addaf2cb3"
 }
 
 locals {
