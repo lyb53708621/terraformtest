@@ -58,10 +58,10 @@ resource "azurerm_resource_group" "testgroup" {
 module "network" {
   source = "./modules/network"
 
-  prefix = var.prefix
-  location = azurerm_resource_group.testgroup.location
+  prefix              = var.prefix
+  location            = azurerm_resource_group.testgroup.location
   resource_group_name = azurerm_resource_group.testgroup.name
-  environment = var.environment
+  environment         = var.environment
 }
 
 module "storageaccount" {
@@ -79,5 +79,5 @@ module "storageaccout" {
   resource_group_location = azurerm_resource_group.testgroup.location
   assetname               = "test2"
   environment             = var.environment
-  instance_count          = 2  
+  instance_count          = 2
 }
