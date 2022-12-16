@@ -4,10 +4,15 @@ variable "resource_group_name" {
   nullable    = false
 }
 
-variable "vnet_location" {
+variable "location" {
   description = "The location of the vnet to create."
   type        = string
   nullable    = false
+}
+
+variable "environment" {
+  type    = string
+  default = "dev"
 }
 
 variable "address_space" {

@@ -58,7 +58,6 @@ resource "azurerm_resource_group" "testgroup" {
 module "network" {
   source = "./modules/network"
 
-  prefix              = var.prefix
   location            = azurerm_resource_group.testgroup.location
   resource_group_name = azurerm_resource_group.testgroup.name
   vnet_name = var.vnet_name
