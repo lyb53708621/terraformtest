@@ -64,7 +64,7 @@ module "network" {
   address_space       = var.address_space
   subnet_names = var.subnet_names
   subnet_prefixes = var.subnet_prefixes
-  use_for_each = true
+  use_for_each = false
   environment         = var.environment
 }
 
