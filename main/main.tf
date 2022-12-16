@@ -60,11 +60,11 @@ module "network" {
 
   location            = azurerm_resource_group.testgroup.location
   resource_group_name = azurerm_resource_group.testgroup.name
-  vnet_name = var.vnet_name
+  vnet_name           = "Terraform-${var.vnet_name}"
   address_space       = var.address_space
-  subnet_names = var.subnet_names
-  subnet_prefixes = var.subnet_prefixes
-  use_for_each = false
+  subnet_names        = var.subnet_names
+  subnet_prefixes     = var.subnet_prefixes
+  use_for_each        = false
   environment         = var.environment
 }
 
