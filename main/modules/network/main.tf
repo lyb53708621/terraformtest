@@ -69,7 +69,7 @@ resource "azurerm_subnet" "subnet_count" {
 resource "azurerm_subnet" "subnet_for_each" {
   for_each = var.use_for_each ? toset(var.subnet_names) : []
 
-  address_prefixes                               = [local.subnet_names_prefixes[each.value]]
+  address_prefixes                               = [var.subnet_prefixes[each.value]]
   name                                           = each.value
   resource_group_name                            = var.resource_group_name
   virtual_network_name                           = azurerm_virtual_network.vnet.name
