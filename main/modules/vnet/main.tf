@@ -103,7 +103,7 @@ resource "azurerm_subnet_network_security_group_association" "vnet" {
   for_each = local.azurerm_subnets_name_id_map
 
   subnet_id                 = each.value
-  network_security_group_id = module.test-nsg.network_security_group_id
+  network_security_group_id = var.network_security_group_id
 }
 
 resource "azurerm_subnet_route_table_association" "vnet" {

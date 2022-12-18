@@ -1,3 +1,3 @@
 output "storageaccoutname" {
-  value = module.storageaccout.storageaccount
+  value = module.edwin_sto.storageaccount
 }
