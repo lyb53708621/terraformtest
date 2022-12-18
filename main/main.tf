@@ -60,7 +60,7 @@ module "test-nsg" {
 
   resource_group_name   = azurerm_resource_group.testgroup.name
   location              = azurerm_resource_group.testgroup.location
-  security_group_name   = "terraform-test-nsg"
+  network_security_group_name   = "terraform-test-nsg"
   source_address_prefix = ["10.0.3.0/24"]
   predefined_rules = [
     {
