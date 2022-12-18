@@ -114,3 +114,9 @@ variable "vnet_name" {
   type        = string
   default     = "acctvnet"
 }
+
+variable "network_security_group_id" {
+  description = "NSG ID"
+  type        = string
+  default     = ""
+}

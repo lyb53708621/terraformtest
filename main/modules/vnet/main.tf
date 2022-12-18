@@ -36,10 +36,10 @@ resource "azurerm_virtual_network" "vnet" {
   }
 }
 
-moved {
-  from = azurerm_subnet.subnet
-  to   = azurerm_subnet.subnet_count
-}
+# moved {
+#   from = azurerm_subnet.subnet
+#   to   = azurerm_subnet.subnet_count
+# }
 
 resource "azurerm_subnet" "subnet_count" {
   count = var.use_for_each ? 0 : length(var.subnet_names)
@@ -100,10 +100,10 @@ locals {
 }
 
 resource "azurerm_subnet_network_security_group_association" "vnet" {
-  for_each = var.nsg_ids
+  for_each = local.azurerm_subnets_name_id_map
 
-  network_security_group_id = each.value
-  subnet_id                 = local.azurerm_subnets_name_id_map[each.key]
+  subnet_id                 = each.value
+  network_security_group_id = module.test-nsg.network_security_group_id
 }
 
 resource "azurerm_subnet_route_table_association" "vnet" {

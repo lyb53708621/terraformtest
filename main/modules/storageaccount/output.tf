@@ -1,3 +1,3 @@
-output "storageaccoun" {
+output "storageaccount" {
   value = azurerm_storage_account.storageaccount1
 }
