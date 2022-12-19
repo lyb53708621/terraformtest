@@ -13,8 +13,8 @@ resource "azurerm_network_security_rule" "predefined_rules" {
   count                                      = length(var.predefined_rules)
   name                                       = lookup(var.predefined_rules[count.index], "name")
   priority                                   = lookup(var.predefined_rules[count.index], "priority", 4096 - length(var.predefined_rules) + count.index)
-  direction                                  = element(var.rules[lookup(var.predefined_rules[count.index], "name")], 0)
-  access                                     = element(var.rules[lookup(var.predefined_rules[count.index], "name")], 1)
+  direction                                  = lookup(var.predefined_rules[count.index], "direction")
+  access                                     = lookup(var.predefined_rules[count.index], "access")
   protocol                                   = element(var.rules[lookup(var.predefined_rules[count.index], "name")], 2)
   source_port_range                          = lookup(var.predefined_rules[count.index], "source_port_range", "*") == "*" ? "*" : null
   source_port_ranges                         = lookup(var.predefined_rules[count.index], "source_port_range", "*") == "*" ? null : split(",", var.predefined_rules[count.index].source_port_range)

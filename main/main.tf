@@ -35,15 +35,6 @@ provider "azurerm" {
     #      recover_soft_deleted_key_vaults = true
     #    }
   }
-  # subscription_id = "b42d41fc-457e-4d69-bf5f-d6ca999ef2a0"
-  # client_id       = "79baa2b9-8087-4140-8329-76e89d92b8dc"
-  # client_secret   = var.client_secret
-  # tenant_id       = "aa141e2a-a555-4d1b-a870-173addaf2cb3"
-}
-
-locals {
-  assetname = "ediwn"
-  location  = "eastasia"
 }
 
 resource "azurerm_resource_group" "testgroup" {
@@ -51,7 +42,7 @@ resource "azurerm_resource_group" "testgroup" {
   location = var.location
   tags = {
     Env  = "DevGroup"
-    Name = "testrg01"
+    Name = "testrg0101"
   }
 }
 
@@ -66,10 +57,14 @@ module "test-nsg" {
     {
       name     = "SSH"
       priority = "500"
+      direction              = "Inbound"
+      access                 = "Allow"
     },
     {
       name              = "LDAP"
       source_port_range = "1024-1026"
+      direction              = "Inbound"
+      access                 = "Allow"
     }
   ]
 
@@ -125,7 +120,7 @@ module "edwin_sto" {
   source                  = "./modules/storageaccount"
   resource_group_name     = azurerm_resource_group.testgroup.name
   resource_group_location = azurerm_resource_group.testgroup.location
-  assetname               = local.assetname
+  assetname               = "edwin"
   environment             = var.environment
   instance_count          = 2
 }
